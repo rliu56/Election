@@ -1,8 +1,12 @@
+-----------------------------------------------------------------------------------------------------------------------
+
 1.  <Intro>
   
     A secure election system to provide a secure way for multiple people to vote simultaneously online by utilizing RSA and digital signature. Used threads to build the voting facility server to achieve concurrency.
       o No one can vote more than once.
       o No one can determine the candidate for whom anyone else voted.
+
+-----------------------------------------------------------------------------------------------------------------------
 
 2.  <Rules>
 
@@ -58,8 +62,10 @@
         Linda <the total number of votes>
     
     -9. If the user enters “4”, then voter-cli terminates.
-    
-3. 	<How to run>:
+
+-----------------------------------------------------------------------------------------------------------------------
+
+3.  <How to run>:
     a. make                               : compile before running
     b. java RSA                           : generate RSA keys
     c. java Vf <VF server's port number>  :	start a server
