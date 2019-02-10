@@ -1,0 +1,13 @@
+
+1. 	Language: JAVA
+
+2. 	Platform: Linux
+
+3. 	How to run:
+		a. make													:	compile before running
+		b. java Vf <VF server's port number>					:	start server
+		c. java VoterCli <VF server's domain> <VF server's port>: 	start client
+		-  (java RSA)											:	regenerate keys, if you want
+		-  (make clean)											:	clean *.class files
+
+ 
