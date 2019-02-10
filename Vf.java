@@ -34,9 +34,9 @@ public class Vf {
             while ((line = bufR.readLine()) != null) {
                 String splited[] = line.split(" ");
                 voterinfo.put(splited[0], splited[1]);
-                System.out.println(splited[0] + ' ' +splited[1]);
+                System.out.println(splited[0] + '\t' +splited[1]);
             }
-            System.out.printf("---------------------------------------------------------------------");
+            System.out.println("---------------------------------------------------------------------");
 
             result.put("Tim", 0);
             result.put("Linda", 0);
@@ -131,7 +131,7 @@ public class Vf {
                                 hisEntryDate = history.get(vnumber);
                             lock.readLock().unlock();
                             if (hisEntryDate != null) {
-                                System.out.println("  -" + name + ": already voted");
+                                System.out.println("  -" + name + ": has already voted");
                                 out.writeUTF("0");
                                 continue;
                             } else
@@ -140,13 +140,13 @@ public class Vf {
                             inStr = in.readUTF();
                             inStr = RSA.decrypt(inStr, serKeyPair.getPrivate());
                             if (!inStr.equals("1") && !inStr.equals("2")) {
-                                System.out.println("  -" + name + ": vote failed");
+                                System.out.println("  -" + name + ": voting failed");
                             }else {
                                 lock.readLock().lock();
                                     hisEntryDate = history.get(vnumber);
                                 lock.readLock().unlock();
                                 if (hisEntryDate != null) {
-                                    System.out.println("  --" + name + ": already voted");
+                                    System.out.println("  --" + name + ": has already voted");
                                     out.writeUTF("0");
                                     continue;
                                 }
@@ -201,7 +201,7 @@ public class Vf {
                             lock.readLock().unlock();
                             if (totalVote != 3) {
                                 out.writeUTF("0");
-                                System.out.println("  " + name + ": 3. Result is not available now");
+                                System.out.println("  -" + name + ": checking pending result");
                                 continue;
                             }
                             String winner;

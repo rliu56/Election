@@ -5,4 +5,4 @@ default:
 	javac -classpath . $(SRCS)
 
 clean:
-	$(RM) *.class
+	$(RM) *.class result history *.pb *.pr

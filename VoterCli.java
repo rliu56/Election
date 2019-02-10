@@ -29,7 +29,7 @@ public class VoterCli {
                 serPubKey = RSA.getPublicKey("Server");
                 myKeyPair = RSA.getKeyPair(name);
             }catch (GeneralSecurityException | IOException e){
-                e.printStackTrace();
+                //e.printStackTrace();
                 System.err.println("  >> Error:you don't have keys of this name <<");
                 out.writeUTF(" ");
                 return;
@@ -47,7 +47,7 @@ public class VoterCli {
 
             while (true) {
                 System.out.println("\n====================================================================");
-                System.out.println("\n   Welcome, " + name);
+                System.out.println("\n   Welcome, " + name + "!\n");
                 System.out.println("      Main Menu");
                 System.out.println("  Please enter a number (1-4)");
                 System.out.println("  1. Vote");
@@ -90,7 +90,7 @@ public class VoterCli {
                         if (inStr.equals("0"))
                             System.out.println("\n  >> You have already voted <<");
                         else
-                            System.out.println("\n  >> Vote succeeded! Your selection is: " + inStr + " <<");
+                            System.out.println("\n  >> Succeed! You voted for: " + inStr + " <<");
                         continue;
 
                     case '2':
@@ -98,20 +98,20 @@ public class VoterCli {
                         if (!inStr.equals(" "))
                             System.out.println(inStr);
                         else
-                            System.out.println("\n >> You haven't voted yet <<");
+                            System.out.println("\n >> You haven't voted <<");
                         continue;
 
                     case '3':
                         inStr = in.readUTF();
                         if (inStr.equals("0")) {
-                            System.out.println("\n  >> Result is not available now <<");
+                            System.out.println("\n  >> The result is still pending <<");
                             continue;
                         }
                         System.out.println(inStr);
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 
