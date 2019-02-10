@@ -60,7 +60,7 @@
     -9. If the user enters “4”, then voter-cli terminates.
     
 3. 	<How to run>:
-		a. make                               : compile before running
-		b. java RSA                           : generate RSA keys
+    a. make                               : compile before running
+    b. java RSA                           : generate RSA keys
     c. java Vf <VF server's port number>  :	start a server
-		d. java VoterCli <VF server's domain> <VF server's port> : start a client instance
+    d. java VoterCli <VF server's domain> <VF server's port> : start a client instance
