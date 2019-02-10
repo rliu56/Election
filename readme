@@ -15,11 +15,9 @@
       Bob 113880000
       John 114660000
       
-    The voters connect to the Voting Facility (VF) to vote. All voters have the public keys of VF
-    and VF has the public keys of all voters. The VF server is a concurrent server that enables multiple voters to connect to the server simultaneously.
+    The voters connect to the Voting Facility (VF) to vote. All voters have the public keys of VF and VF has the public keys of all voters. The VF server is a concurrent server that enables multiple voters to connect to the server simultaneously.
     
-    Let || represent concatenation, pub(X) represent the public-key of X, priv(X) represent the private-key of X, DS(X) represent the digital signature of X, and E(K,M) represent encrypting message M using key K. The
-    detailed steps are given below:
+    Let || represent concatenation, pub(X) represent the public-key of X, priv(X) represent the private-key of X, DS(X) represent the digital signature of X, and E(K,M) represent encrypting message M using key K. The detailed steps are given below:
     
     -1. The voter invokes voter-cli to connect to the VF server
     
@@ -28,7 +26,7 @@
     -3. After the voter enters vnumber, voter-cli sends E(pub(VF), name||vnumber)||DS(name) to the VF server (“||” represents concatenation).
     
     -4. The VF server checks whether the name and vnumber received match the information in file voterinfo. If not, the VF server sends 0 to voter-cli. voter-cli then prints “Invalid name or registration number” and terminates the connection. Otherwise, VF sends 1 to voter-cli. Voter-cli prints the user’s name and prompts the user to select an action to perform:
-        Welcome, <user’s name>
+      Welcome, <user’s name>
         Main Menu
         Please enter a number (1-4)
         1. Vote
@@ -46,13 +44,11 @@
         Linda <the total number of votes>
     VF also adds the date and time when the voter votes to a file “history” that has the following format (if history does not exist, then create the file):
         <registration number> <date and time when the voter votes>
-    If the user is the last user who voted (i.e. all users have voted), then the VF server prints the results
-    using the following format:
+    If the user is the last user who voted (i.e. all users have voted), then the VF server prints the results using the following format:
         <Candidate’s name> Win
         Tim <the total number of votes>
         Linda <the total number of votes>
-    Vote-cli then displays Main Menu in step 4
-    Otherwise, go to Main Menu in step 4.
+    Vote-cli then displays Main Menu in step 4. Otherwise, go to Main Menu in step 4.
     
     -7. If the user enters “2” (i.e. My vote history), the VF server retrieves the corresponding entry in file “history” and sends the entry to voter-cli. voter-cli then displays the entry to the user. Go to Main Menu in step 4
     
